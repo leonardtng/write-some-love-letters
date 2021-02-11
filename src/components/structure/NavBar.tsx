@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { AppBar, Grid, Switch, Toolbar } from '@material-ui/core';
-import {  Favorite, NightsStay, WbSunny } from '@material-ui/icons';
+import {  Favorite, MailOutline, NightsStay, WbSunny } from '@material-ui/icons';
 import { ThemeContext } from '../../contexts/ThemeContext';
 
 const useStyles = makeStyles<Theme>((theme: Theme) => ({
@@ -11,6 +11,11 @@ const useStyles = makeStyles<Theme>((theme: Theme) => ({
       background: 'transparent',
       boxShadow: 'none',
     },
+  },
+  icons: {
+    '& .MuiSvgIcon-root': {
+      marginRight: 10,
+    }
   },
   mode: {
     display: 'flex',
@@ -35,8 +40,9 @@ const NavBar: React.FC = () => {
       <AppBar position='fixed' className={classes.appBar}>
         <Toolbar>
           <Grid container spacing={0}>
-            <Grid item xs={9}>
+            <Grid item xs={9} className={classes.icons}>
               <Favorite color="primary" />
+              <MailOutline color="primary" />
             </Grid>
             <Grid item xs={3} className={classes.mode}>
               <Switch

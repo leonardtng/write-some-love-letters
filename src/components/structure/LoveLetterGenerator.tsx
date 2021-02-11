@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Button, Grid, Paper, TextField, Typography } from '@material-ui/core';
-import { ArrowForward, Refresh } from '@material-ui/icons';
+import { ArrowForward, Edit, Refresh } from '@material-ui/icons';
 import Female from '../../assets/female.svg';
 import Male from '../../assets/male.svg';
 import { generateLetter } from '../../@utils/generateLetter';
@@ -36,10 +36,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'center',
   },
   letterBody: {
-    height: 300,
+    minHeight: 300,
     width: 700,
     textAlign: 'justify',
-    padding: 20,
+    padding: 30,
   },
   filler: {
     height: '100%',
@@ -77,10 +77,10 @@ const LoveLetterGenrator: React.FC = () => {
   return (
     <Grid container spacing={6} className={classes.root}>
       <Grid item xs={12}>
-        <Typography variant="h1" component="h1" color="secondary" gutterBottom>
+        <Typography variant="h2" component="h1" color="secondary" gutterBottom>
           Write some love letters
         </Typography>
-        <Typography variant="h4" component="h2" color="secondary">
+        <Typography variant="h6" component="h2" color="secondary">
           Click the button below to generate a love letter for your special someone! (Or for yourself)
         </Typography>
       </Grid>
@@ -109,7 +109,7 @@ const LoveLetterGenrator: React.FC = () => {
           onClick={handleGenerateLetter}
           endIcon={letter.generated ? <Refresh /> : <ArrowForward />}
         >
-          Generate!
+          {letter.generated ? 'Refresh!' : 'Generate!'}
         </Button>
         <Typography variant="subtitle1" component="div">* Recipient and sender names are optional</Typography>
       </Grid>
@@ -151,9 +151,9 @@ const LoveLetterGenrator: React.FC = () => {
                     variant="contained"
                     color="primary"
                     onClick={handleGenerateLetter}
-                    endIcon={letter.generated ? <Refresh /> : <ArrowForward />}
+                    endIcon={<Edit />}
                   >
-                    Generate!
+                    Write a letter!
                   </Button>
                 </div>
               )}
