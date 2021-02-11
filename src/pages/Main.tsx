@@ -1,7 +1,8 @@
 import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import NavBar from '../components/structure/NavBar';
+import LoveLetterGenerator from '../components/structure/LoveLetterGenerator';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -22,7 +23,7 @@ const Main: React.FC = () => {
       </Grid>
       <Grid item xs={1} lg={2} xl={3}></Grid>
       <Grid item xs={10} lg={8} xl={6}>
-        <Typography variant="h1" component="h1">Write me a love letter</Typography>
+        <LoveLetterGenerator />
       </Grid>
       <Grid item xs={1} lg={2} xl={3}></Grid>
     </Grid>

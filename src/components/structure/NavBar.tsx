@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { AppBar, Grid, Toolbar } from '@material-ui/core';
+import { AppBar, Grid, Switch, Toolbar } from '@material-ui/core';
+import {  Favorite, NightsStay, WbSunny } from '@material-ui/icons';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 const useStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
@@ -8,6 +10,14 @@ const useStyles = makeStyles<Theme>((theme: Theme) => ({
     '& .MuiAppBar-root': {
       background: 'transparent',
       boxShadow: 'none',
+    },
+  },
+  mode: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    '& .MuiSwitch-root': {
+      marginRight: 10,
     },
   },
   appBar: {
@@ -18,16 +28,27 @@ const useStyles = makeStyles<Theme>((theme: Theme) => ({
 const NavBar: React.FC = () => {
   const classes = useStyles();
 
+  const { darkMode, toggleTheme } = useContext(ThemeContext);
+
   return (
     <div className={classes.root}>
       <AppBar position='fixed' className={classes.appBar}>
         <Toolbar>
           <Grid container spacing={0}>
-            <Grid item xs={1}>
-              Icon
+            <Grid item xs={9}>
+              <Favorite color="primary" />
             </Grid>
-            <Grid item xs={11}>
-
+            <Grid item xs={3} className={classes.mode}>
+              <Switch
+                checked={darkMode}
+                onChange={toggleTheme}
+                color="primary"
+              />
+              {darkMode ? (
+                <NightsStay color="primary" />
+              ) : (
+                  <WbSunny color="primary" />
+                )}
             </Grid>
           </Grid>
         </Toolbar>

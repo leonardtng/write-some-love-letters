@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme: Theme) =>
     app: {
       minHeight: '100vh',
       backgroundColor: theme.palette.background.default,
-      // color: theme.palette.text.primary,
+      color: theme.palette.text.primary,
     },
   }),
 );

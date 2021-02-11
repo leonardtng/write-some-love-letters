@@ -20,10 +20,10 @@ const AppTheme: React.FC = () => {
         main: '#CC6598',
       },
       secondary: {
-        main: '#E2B3D7',
+        main: '#8ABAD3FF',
       },
       background: {
-        default: '#fafafa',
+        default: '#FCF6F5FF',
         paper: '#f2f2f2',
       },
     },
@@ -37,7 +37,7 @@ const AppTheme: React.FC = () => {
         main: '#D587B7',
       },
       secondary: {
-        main: '#D79ECC',
+        main: '#EDC2D8FF',
       },
       background: {
         default: '#0B0C10',
