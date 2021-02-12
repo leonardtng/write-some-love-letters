@@ -24,15 +24,54 @@ const generateLetter = (recipient?: string, sender?: string, recipientGender: st
   ${getRandom(recipientNouns)}.
   `
 
-  const generated2 = `You are my ${getRandom(senderAdjectives)} ${getRandom(senderNouns)}. `
+  const generated2 =
+    `You are my ${getRandom(senderAdjectives)} 
+  ${getRandom(senderNouns)}.
+  `
 
-  const generated3 = `My ${getRandom(senderNouns)} ${getRandom(verbs)} for your ${getRandom(recipientNouns)}. `
+  const generated3 =
+    `My ${getRandom(senderNouns)} 
+  ${getRandom(verbs)} 
+  for your 
+  ${getRandom(recipientNouns)}. 
+  `
 
-  const generated4 = `Your ${getRandom(recipientAdjectives)} ${getRandom(recipientGender === 'female' ? bodyPartsFemale : bodyPartsMale)} is my ${getRandom(senderAdjectives)} ${getRandom(senderNouns)}. `
+  const generated4 =
+    `Your ${getRandom(recipientAdjectives)} 
+  ${getRandom(recipientGender === 'female' ? bodyPartsFemale : bodyPartsMale)} 
+  is my 
+  ${getRandom(senderAdjectives)} 
+  ${getRandom(senderNouns)}. 
+  `
 
-  const generated5 = `You are my ${getRandom(senderAdjectives)} ${getRandom(senderNouns)}: A ${getRandom(recipientAdjectives)} ${getRandom(recipientNouns)}. `
+  const generated5 = `
+  I am so happy to wake up to your 
+  ${getRandom(recipientAdjectives)} 
+  ${getRandom(recipientGender === 'female' ? bodyPartsFemale : bodyPartsMale)}, 
+  your ${getRandom(recipientAdjectives)} 
+  ${getRandom(recipientGender === 'female' ? bodyPartsFemale : bodyPartsMale)}, 
+  and ${getRandom(recipientAdjectives)} 
+  ${getRandom(recipientGender === 'female' ? bodyPartsFemale : bodyPartsMale)}. `
 
-  const body = generated1 + getRandom(defaultSentencesSet1) + generated2 + getRandom(recipientGender === 'female' ? forHerSentences : forHimSentences) + generated3 + getRandom(defaultSentencesSet2) + generated4 + generated5
+  const generated6 =
+    `You are my ${getRandom(senderAdjectives)} 
+  ${getRandom(senderNouns)}: 
+  A ${getRandom(recipientAdjectives)} 
+  ${getRandom(recipientNouns)}. 
+  `
+
+  const sentences = [
+    generated1, 
+    generated2, 
+    generated3, 
+    generated4, 
+    generated5, 
+    getRandom(defaultSentencesSet1), 
+    getRandom(defaultSentencesSet2), 
+    getRandom(recipientGender === 'female' ? forHerSentences : forHimSentences)
+  ]
+
+  const body = sentences.sort(() => Math.random() - 0.5).join('') + generated6
 
   const signOff = `Yours ${getRandom(adverbs)}, `
   const senderName = `${sender ? sender : 'Anonymous'}`

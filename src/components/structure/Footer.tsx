@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Link } from '@material-ui/core';
+import { GitHub } from '@material-ui/icons';
 
 const useStyles = makeStyles<Theme>((theme: Theme) => ({
   footer: {
@@ -14,8 +15,17 @@ const useStyles = makeStyles<Theme>((theme: Theme) => ({
     '& a': {
       textDecoration: 'none',
       color: theme.palette.secondary.main
-    }
-  }
+    },
+  },
+  github: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
+    '& .MuiSvgIcon-root': {
+      marginRight: 8,
+    },
+  },
 }));
 
 const Footer: React.FC = () => {
@@ -24,11 +34,13 @@ const Footer: React.FC = () => {
   return (
     <Grid container spacing={0} className={classes.footer}>
       <Grid item xs={12}>
-        <Typography>
-          This project is inspired by Professor 
-          <a href="https://www.yale-nus.edu.sg/about/faculty/olivier-danvy/" target="_blank" rel="noreferrer"> Olivier Danvy's </a> 
-          YSC1212 Introduction to Computer Science Module and 
-          <a href="http://www.alpha60.de/art/love_letters/" target="_blank" rel="noreferrer"> Starchy's Love Letter Generator</a>
+        <Typography variant="body1" component="p">
+          This project is inspired by Professor <Link href="https://www.yale-nus.edu.sg/about/faculty/olivier-danvy/" target="_blank" rel="noreferrer">Olivier Danvy's</Link> YSC1212 Introduction to Computer Science module and <Link href="http://www.alpha60.de/art/love_letters/" target="_blank" rel="noreferrer">Starchy's Love Letter Generator</Link>
+        </Typography>
+        <Typography variant="h6" component="h3">
+          <Link href="https://github.com/leonardtng/write-some-love-letters" color="textPrimary" target='_blank' rel="noopener" className={classes.github}>
+            <GitHub />GitHub
+          </Link>
         </Typography>
       </Grid>
     </Grid>

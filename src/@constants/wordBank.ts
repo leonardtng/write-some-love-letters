@@ -110,9 +110,14 @@ export const bodyParts = [
   'mouth',
   'hair',
   'hands',
+  'arms',
+  'rear',
+  'thighs',
   'legs',
   'lips',
   'voice',
+  'touch',
+  'face',
   'smile',
 ]
 

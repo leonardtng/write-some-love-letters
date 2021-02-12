@@ -1,12 +1,13 @@
 import React, { Fragment, useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Button, Grid, Paper, TextField, Tooltip, Typography } from '@material-ui/core';
-import { ArrowForward, Edit, Refresh } from '@material-ui/icons';
+import { ArrowForward, Refresh } from '@material-ui/icons';
 import Female from '../../assets/female.svg';
 import Male from '../../assets/male.svg';
 import { generateLetter } from '../../@utils/generateLetter';
 import { LoveLetter } from '../../@types';
 import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
+import LetterBodyFiller from '../fillers/LetterBodyFiller';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -47,11 +48,22 @@ const useStyles = makeStyles((theme: Theme) => ({
       marginBottom: '1em',
     }
   },
-  filler: {
-    height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+  buttonAnimation: {
+    animation: '$pulse 1.5s ease infinite',
+    boxShadow: `0 0 0 0 ${theme.palette.primary.main}80`,
+  },
+  '@keyframes pulse': {
+    '0%': {
+      transform: 'scale(0.9)',
+    },
+    '70%': {
+      transform: 'scale(1)',
+      boxShadow: `0 0 0 15px ${theme.palette.primary.main}00`,
+    },
+    '100%': {
+      transform: 'scale(0.9)',
+      boxShadow: `0 0 0 0 ${theme.palette.primary.main}00`
+    }
   },
   '@media only screen and (max-width: 960px)': {
     inputSection: {
@@ -74,12 +86,14 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const LoveLetterGenrator: React.FC = () => {
+const LoveLetterGenerator: React.FC = () => {
   const classes = useStyles();
 
   const [recipient, setRecipient] = useState<string>('');
   const [sender, setSender] = useState<string>('');
   const [recipientGender, setRecipientGender] = useState<string | null>('female');
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [letter, setLetter] = useState<LoveLetter>({
     generated: false,
@@ -91,12 +105,21 @@ const LoveLetterGenrator: React.FC = () => {
 
   const handleRecipientGender = (event: React.MouseEvent<HTMLElement>, newRecipientGender: string | null) => {
     setRecipientGender(newRecipientGender);
-    if (letter.generated) setLetter(generateLetter(recipient, sender, newRecipientGender));
+    if (letter.generated) {
+      setIsLoading(true);
+      setTimeout(() => {
+        setLetter(generateLetter(recipient, sender, newRecipientGender));
+        setIsLoading(false);
+      }, 500);
+    };
   };
 
-
   const handleGenerateLetter = () => {
-    setLetter(generateLetter(recipient, sender, recipientGender));
+    setIsLoading(true);
+    setTimeout(() => {
+      setLetter(generateLetter(recipient, sender, recipientGender));
+      setIsLoading(false);
+    }, 500);
   }
 
   return (
@@ -133,6 +156,7 @@ const LoveLetterGenrator: React.FC = () => {
           color="primary"
           onClick={handleGenerateLetter}
           endIcon={letter.generated ? <Refresh /> : <ArrowForward />}
+          className={letter.generated ? undefined : classes.buttonAnimation}
         >
           {letter.generated ? 'Refresh!' : 'Generate!'}
         </Button>
@@ -144,22 +168,21 @@ const LoveLetterGenrator: React.FC = () => {
           value={recipientGender}
           exclusive
           onChange={handleRecipientGender}
-          aria-label="text alignment"
         >
-          <Tooltip title="For Her" placement="top">
-            <ToggleButton value="female">
+          <ToggleButton value="female">
+            <Tooltip title="For Her" placement="top">
               <img src={Female} alt="Female" height="20" />
-            </ToggleButton>
-          </Tooltip>
-          <Tooltip title="For Him" placement="top">
-            <ToggleButton value="male">
+            </Tooltip>
+          </ToggleButton>
+          <ToggleButton value="male">
+            <Tooltip title="For Him" placement="top">
               <img src={Male} alt="Male" height="20" />
-            </ToggleButton>
-          </Tooltip>
+            </Tooltip>
+          </ToggleButton>
         </ToggleButtonGroup>
         <div className={classes.letterContainer}>
           <Paper className={classes.letterBody}>
-            {letter.generated ? (
+            {letter.generated && !isLoading ? (
               <Fragment>
                 <Typography variant="h6" component="p" color="primary" gutterBottom>
                   {letter.salutation}
@@ -175,16 +198,7 @@ const LoveLetterGenrator: React.FC = () => {
                 </Typography>
               </Fragment>
             ) : (
-                <div className={classes.filler}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleGenerateLetter}
-                    endIcon={<Edit />}
-                  >
-                    Write a letter!
-                  </Button>
-                </div>
+                <LetterBodyFiller />
               )}
           </Paper>
         </div>
@@ -193,4 +207,4 @@ const LoveLetterGenrator: React.FC = () => {
   );
 }
 
-export default LoveLetterGenrator;
+export default LoveLetterGenerator;

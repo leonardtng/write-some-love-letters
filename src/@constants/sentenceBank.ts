@@ -2,7 +2,7 @@ export const defaultSentencesSet1 = [
   'You are the best I ever had and I must be the luckiest person to have you in my life. ',
   'My heart skips a beat when I think of you. ',
   'You are essential to me. ',
-  'I want to take you away. ',
+  'I want to take you far far away. ',
   'You are my favorite distraction. '
 ]
 
@@ -12,12 +12,12 @@ export const defaultSentencesSet2 = [
   'You are my sunny day in spring. ',
   'You are my warmth in winter. ',
   'You are the beauty of autumn. ',
-  'You are the breeze in summer. '
+  'You are my breeze in summer. '
 ]
 
 export const forHerSentences = [
   'The way you look at me makes me feel strong and confident. ',
-  'I am so happy to wake-up to your beautiful face, your sweet voice and tender touch. ',
+  'I crown you the Queen of my heart. ',
   'Every time I see you I fall in love all over again. '
 ]
 
