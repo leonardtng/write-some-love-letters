@@ -12,9 +12,10 @@ import LetterBodyFiller from '../fillers/LetterBodyFiller';
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     textAlign: 'center',
+    overflow: 'hidden',
   },
   header: {
-    marginTop: 30,
+    marginTop: 20,
   },
   inputSection: {
     '& .MuiTextField-root': {
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       width: 160,
     },
     '& .MuiTypography-root': {
-      marginTop: 20,
+      marginBottom: 20,
       color: theme.palette.action.disabled,
     },
   },
@@ -74,13 +75,8 @@ const useStyles = makeStyles((theme: Theme) => ({
         marginRight: 0,
       },
       '& .MuiButton-root': {
-        height: 56,
         maxWidth: 700,
         width: '100%',
-      },
-      '& .MuiTypography-root': {
-        marginTop: 20,
-        color: theme.palette.action.disabled,
       },
     },
   },
@@ -123,16 +119,17 @@ const LoveLetterGenerator: React.FC = () => {
   }
 
   return (
-    <Grid container spacing={6} className={classes.root}>
+    <Grid container spacing={4} className={classes.root}>
       <Grid item xs={12} className={classes.header}>
         <Typography variant="h2" component="h1" color="secondary" gutterBottom>
-          Write some love letters
+          Write some love letters!
         </Typography>
         <Typography variant="h6" component="h2" color="secondary">
           Click the button to generate a love letter for your special someone! (Or yourself)
         </Typography>
       </Grid>
       <Grid item xs={12} className={classes.inputSection}>
+        <Typography variant="subtitle1" component="div">* Recipient and sender names are optional</Typography>
         <TextField
           id="recipient"
           label="Who is this for?"
@@ -160,7 +157,6 @@ const LoveLetterGenerator: React.FC = () => {
         >
           {letter.generated ? 'Refresh!' : 'Generate!'}
         </Button>
-        <Typography variant="subtitle1" component="div">* Recipient and sender names are optional</Typography>
       </Grid>
       <Grid item xs={12}>
         <ToggleButtonGroup

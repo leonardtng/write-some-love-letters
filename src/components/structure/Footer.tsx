@@ -5,13 +5,10 @@ import { GitHub } from '@material-ui/icons';
 
 const useStyles = makeStyles<Theme>((theme: Theme) => ({
   footer: {
-    height: 50,
-    bottom: 0,
     width: '100%',
     textAlign: 'center',
-    marginTop: 70,
+    marginTop: 60,
     marginBottom: 50,
-    position: 'relative',
     '& a': {
       textDecoration: 'none',
       color: theme.palette.secondary.main
