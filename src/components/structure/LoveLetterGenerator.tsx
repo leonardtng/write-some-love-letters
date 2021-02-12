@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Button, Grid, Paper, TextField, Tooltip, Typography } from '@material-ui/core';
+import { Button, Grid, Hidden, Paper, TextField, Tooltip, Typography } from '@material-ui/core';
 import { ArrowForward, Refresh } from '@material-ui/icons';
+import { HashLink as Link } from 'react-router-hash-link';
 import Female from '../../assets/female.svg';
 import Male from '../../assets/male.svg';
 import { generateLetter } from '../../@utils/generateLetter';
@@ -29,6 +30,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     '& .MuiTypography-root': {
       marginBottom: 20,
       color: theme.palette.action.disabled,
+    },
+    '& a': {
+      textDecoration: 'none',
     },
   },
   toggleBody: {
@@ -121,17 +125,26 @@ const LoveLetterGenerator: React.FC = () => {
   return (
     <Grid container spacing={4} className={classes.root}>
       <Grid item xs={12} className={classes.header}>
-        <Typography variant="h2" component="h1" color="secondary" gutterBottom>
-          Write some love letters!
+        <Hidden xsDown>
+          <Typography variant="h2" component="h1" color="secondary" gutterBottom>
+            Write some love letters!
         </Typography>
-        <Typography variant="h6" component="h2" color="secondary">
-          Click the button to generate a love letter for your special someone! (Or yourself)
+          <Typography variant="h6" component="h2" color="secondary">
+            Click the button to generate a love letter for your special someone! (Or yourself)
         </Typography>
+        </Hidden>
+        <Hidden smUp>
+          <Typography variant="h3" component="h1" color="secondary" gutterBottom>
+            Write some love letters!
+        </Typography>
+          <Typography variant="subtitle1" component="h2" color="secondary">
+            Click the button to generate a love letter for your special someone! (Or yourself)
+          </Typography>
+        </Hidden>
       </Grid>
       <Grid item xs={12} className={classes.inputSection}>
         <Typography variant="subtitle1" component="div">* Recipient and sender names are optional</Typography>
         <TextField
-          id="recipient"
           label="Who is this for?"
           variant="outlined"
           onChange={(e) => {
@@ -140,7 +153,7 @@ const LoveLetterGenerator: React.FC = () => {
           }}
         />
         <TextField
-          id="sender"
+          id="letter-anchor"
           label="Who is this from?"
           variant="outlined"
           onChange={(e) => {
@@ -148,15 +161,17 @@ const LoveLetterGenerator: React.FC = () => {
             e.persist();
           }}
         />
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleGenerateLetter}
-          endIcon={letter.generated ? <Refresh /> : <ArrowForward />}
-          className={letter.generated ? undefined : classes.buttonAnimation}
-        >
-          {letter.generated ? 'Refresh!' : 'Generate!'}
-        </Button>
+        <Link smooth to="#letter-anchor">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleGenerateLetter}
+            endIcon={letter.generated ? <Refresh /> : <ArrowForward />}
+            className={letter.generated ? undefined : classes.buttonAnimation}
+          >
+            {letter.generated ? 'Refresh!' : 'Generate!'}
+          </Button>
+        </Link>
       </Grid>
       <Grid item xs={12}>
         <ToggleButtonGroup
