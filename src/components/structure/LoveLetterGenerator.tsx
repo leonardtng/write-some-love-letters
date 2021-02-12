@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Button, Grid, Paper, TextField, Typography } from '@material-ui/core';
+import { Button, Grid, Paper, TextField, Tooltip, Typography } from '@material-ui/core';
 import { ArrowForward, Edit, Refresh } from '@material-ui/icons';
 import Female from '../../assets/female.svg';
 import Male from '../../assets/male.svg';
@@ -11,6 +11,9 @@ import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     textAlign: 'center',
+  },
+  header: {
+    marginTop: 30,
   },
   inputSection: {
     '& .MuiTextField-root': {
@@ -40,13 +43,35 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: 700,
     textAlign: 'justify',
     padding: 30,
+    '& .MuiTypography-gutterBottom': {
+      marginBottom: '1em',
+    }
   },
   filler: {
     height: '100%',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
-  }
+  },
+  '@media only screen and (max-width: 960px)': {
+    inputSection: {
+      '& .MuiTextField-root': {
+        maxWidth: 700,
+        width: '100%',
+        marginBottom: 30,
+        marginRight: 0,
+      },
+      '& .MuiButton-root': {
+        height: 56,
+        maxWidth: 700,
+        width: '100%',
+      },
+      '& .MuiTypography-root': {
+        marginTop: 20,
+        color: theme.palette.action.disabled,
+      },
+    },
+  },
 }));
 
 const LoveLetterGenrator: React.FC = () => {
@@ -76,12 +101,12 @@ const LoveLetterGenrator: React.FC = () => {
 
   return (
     <Grid container spacing={6} className={classes.root}>
-      <Grid item xs={12}>
+      <Grid item xs={12} className={classes.header}>
         <Typography variant="h2" component="h1" color="secondary" gutterBottom>
           Write some love letters
         </Typography>
         <Typography variant="h6" component="h2" color="secondary">
-          Click the button below to generate a love letter for your special someone! (Or for yourself)
+          Click the button to generate a love letter for your special someone! (Or yourself)
         </Typography>
       </Grid>
       <Grid item xs={12} className={classes.inputSection}>
@@ -121,12 +146,16 @@ const LoveLetterGenrator: React.FC = () => {
           onChange={handleRecipientGender}
           aria-label="text alignment"
         >
-          <ToggleButton value="female">
-            <img src={Female} alt="Female" height="20" />
-          </ToggleButton>
-          <ToggleButton value="male">
-            <img src={Male} alt="Male" height="20" />
-          </ToggleButton>
+          <Tooltip title="For Her" placement="top">
+            <ToggleButton value="female">
+              <img src={Female} alt="Female" height="20" />
+            </ToggleButton>
+          </Tooltip>
+          <Tooltip title="For Him" placement="top">
+            <ToggleButton value="male">
+              <img src={Male} alt="Male" height="20" />
+            </ToggleButton>
+          </Tooltip>
         </ToggleButtonGroup>
         <div className={classes.letterContainer}>
           <Paper className={classes.letterBody}>

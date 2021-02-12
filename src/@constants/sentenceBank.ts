@@ -9,13 +9,16 @@ export const defaultSentencesSet1 = [
 export const defaultSentencesSet2 = [
   'There was never a love like ours and there never will be again. ',
   'My life is complete with you. ',
-  'You are my sunny day in spring.',
-  'You are the warmth in my winter. '
+  'You are my sunny day in spring. ',
+  'You are my warmth in winter. ',
+  'You are the beauty of autumn. ',
+  'You are the breeze in summer. '
 ]
 
 export const forHerSentences = [
-  'The way you look at me makes me feel strong, confident and like I can conquer the world and when I do, I will give it to you. ',
-  'I am so happy to wake-up to your beautiful face, your sweet voice and tender touch. '
+  'The way you look at me makes me feel strong and confident. ',
+  'I am so happy to wake-up to your beautiful face, your sweet voice and tender touch. ',
+  'Every time I see you I fall in love all over again. '
 ]
 
 export const forHimSentences = [

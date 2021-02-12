@@ -13,6 +13,8 @@ const useStyles = makeStyles<Theme>((theme: Theme) => ({
     },
   },
   icons: {
+    display: 'flex',
+    alignItems: 'center',
     '& .MuiSvgIcon-root': {
       marginRight: 10,
     }
@@ -27,6 +29,14 @@ const useStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+  },
+  '@media only screen and (max-width: 960px)': {
+    root: {
+      '& .MuiAppBar-root': {
+        background: theme.palette.background.paper,
+        boxShadow: '0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)',
+      },
+    },
   },
 }));
 

@@ -1,4 +1,4 @@
-import { adverbs, altSalutationsFemale, altSalutationsMale, recipientAdjectives, recipientNouns, senderAdjectives, senderNouns, verbs } from "../@constants/wordBank";
+import { adverbs, altSalutationsFemale, altSalutationsMale, bodyPartsFemale, bodyPartsMale, recipientAdjectives, recipientNouns, senderAdjectives, senderNouns, verbs } from "../@constants/wordBank";
 import { defaultSentencesSet1, defaultSentencesSet2, forHerSentences, forHimSentences } from '../@constants/sentenceBank';
 import { LoveLetter } from "../@types";
 
@@ -28,9 +28,11 @@ const generateLetter = (recipient?: string, sender?: string, recipientGender: st
 
   const generated3 = `My ${getRandom(senderNouns)} ${getRandom(verbs)} for your ${getRandom(recipientNouns)}. `
 
-  const generated4 = `You are my ${getRandom(senderAdjectives)} ${getRandom(senderNouns)}: A ${getRandom(recipientAdjectives)} ${getRandom(recipientNouns)}. `
+  const generated4 = `Your ${getRandom(recipientAdjectives)} ${getRandom(recipientGender === 'female' ? bodyPartsFemale : bodyPartsMale)} is my ${getRandom(senderAdjectives)} ${getRandom(senderNouns)}. `
 
-  const body = generated1 + getRandom(defaultSentencesSet1) + generated2 + getRandom(recipientGender === 'female' ? forHerSentences : forHimSentences) + generated3 + getRandom(defaultSentencesSet2) + generated4
+  const generated5 = `You are my ${getRandom(senderAdjectives)} ${getRandom(senderNouns)}: A ${getRandom(recipientAdjectives)} ${getRandom(recipientNouns)}. `
+
+  const body = generated1 + getRandom(defaultSentencesSet1) + generated2 + getRandom(recipientGender === 'female' ? forHerSentences : forHimSentences) + generated3 + getRandom(defaultSentencesSet2) + generated4 + generated5
 
   const signOff = `Yours ${getRandom(adverbs)}, `
   const senderName = `${sender ? sender : 'Anonymous'}`

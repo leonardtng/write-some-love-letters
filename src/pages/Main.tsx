@@ -3,6 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import NavBar from '../components/structure/NavBar';
 import LoveLetterGenerator from '../components/structure/LoveLetterGenerator';
+import Footer from '../components/structure/Footer';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -24,6 +25,11 @@ const Main: React.FC = () => {
       <Grid item xs={1} lg={2} xl={3}></Grid>
       <Grid item xs={10} lg={8} xl={6}>
         <LoveLetterGenerator />
+      </Grid>
+      <Grid item xs={1} lg={2} xl={3}></Grid>
+      <Grid item xs={1} lg={2} xl={3}></Grid>
+      <Grid item xs={10} lg={8} xl={6}>
+        <Footer />
       </Grid>
       <Grid item xs={1} lg={2} xl={3}></Grid>
     </Grid>

@@ -27,7 +27,8 @@ export const verbs = [
   'caress',
   'lusts',
   'cares',
-  'adores'
+  'adores',
+  'pines'
 ]
 
 export const adverbs = [
@@ -56,7 +57,8 @@ export const senderAdjectives = [
   'avid',
   'ardent',
   'sympathetic',
-  'erotic'
+  'erotic',
+  'unsatisfied'
 ]
 
 export const recipientAdjectives = [
@@ -69,7 +71,8 @@ export const recipientAdjectives = [
   'magical',
   'seductive',
   'lovable',
-  'dearest'
+  'dearest',
+  'fond'
 ]
 
 export const senderNouns = [
@@ -80,7 +83,10 @@ export const senderNouns = [
   'adoration',
   'hunger',
   'wish',
-  'ambition'
+  'ambition',
+  'desire',
+  'passion',
+
 ]
 
 export const recipientNouns = [
@@ -88,14 +94,34 @@ export const recipientNouns = [
   'beauty',
   'kindness',
   'hotness',
-  'lovliness',
+  'loveliness',
   'allure',
   'gorgeousness',
   'sexiness',
   'fancy',
   'rapture',
-  'fervour'
+  'fervour',
+  'ardour'
 ]
 
+export const bodyParts = [
+  'eyes',
+  'nose',
+  'mouth',
+  'hair',
+  'hands',
+  'legs',
+  'lips',
+  'voice',
+  'smile',
+]
 
+export const bodyPartsFemale = [
+  ...bodyParts,
+  'bosom',
+]
 
+export const bodyPartsMale = [
+  ...bodyParts,
+  'chest',
+]
