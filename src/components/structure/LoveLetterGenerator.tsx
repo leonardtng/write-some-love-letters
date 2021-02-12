@@ -103,7 +103,7 @@ const LoveLetterGenerator: React.FC = () => {
     sender: ''
   });
 
-  const handleRecipientGender = (event: React.MouseEvent<HTMLElement>, newRecipientGender: string | null) => {
+  const handleRecipientGender = (event: React.MouseEvent<HTMLElement>, newRecipientGender: string | null): void => {
     setRecipientGender(newRecipientGender);
     if (letter.generated) {
       setIsLoading(true);
@@ -114,7 +114,7 @@ const LoveLetterGenerator: React.FC = () => {
     };
   };
 
-  const handleGenerateLetter = () => {
+  const handleGenerateLetter = (): void => {
     setIsLoading(true);
     setTimeout(() => {
       setLetter(generateLetter(recipient, sender, recipientGender));

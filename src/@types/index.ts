@@ -1,3 +1,3 @@
 import { LoveLetterInterface } from './LoveLetter';
 
-export type LoveLetter = LoveLetterInterface
+export type LoveLetter = LoveLetterInterface;

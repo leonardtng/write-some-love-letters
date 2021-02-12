@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { AppBar, Grid, Switch, Toolbar } from '@material-ui/core';
 import {  Favorite, MailOutline, NightsStay, WbSunny } from '@material-ui/icons';
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { ThemeContext, ThemeContextProps } from '../../contexts/ThemeContext';
 
 const useStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
@@ -43,7 +43,7 @@ const useStyles = makeStyles<Theme>((theme: Theme) => ({
 const NavBar: React.FC = () => {
   const classes = useStyles();
 
-  const { darkMode, toggleTheme } = useContext(ThemeContext);
+  const { darkMode, toggleTheme }: ThemeContextProps = useContext(ThemeContext);
 
   return (
     <div className={classes.root}>

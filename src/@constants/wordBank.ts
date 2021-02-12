@@ -1,4 +1,4 @@
-export const altSalutationsFemale = [
+export const altSalutationsFemale: Array<string> = [
   'dame',
   'sweetheart',
   'delicacy',
@@ -8,7 +8,7 @@ export const altSalutationsFemale = [
   'baby'
 ]
 
-export const altSalutationsMale = [
+export const altSalutationsMale: Array<string> = [
   'sir',
   'sweetheart',
   'darling',
@@ -17,7 +17,7 @@ export const altSalutationsMale = [
   'baby'
 ]
 
-export const verbs = [
+export const verbs: Array<string> = [
   'desires',
   'yearns',
   'ravish',
@@ -31,7 +31,7 @@ export const verbs = [
   'pines'
 ]
 
-export const adverbs = [
+export const adverbs: Array<string> = [
   'passionately',
   'patiently',
   'fondly',
@@ -43,7 +43,7 @@ export const adverbs = [
   'fiercely'
 ]
 
-export const senderAdjectives = [
+export const senderAdjectives: Array<string> = [
   'burning',
   'throbbing',
   'fiery',
@@ -61,7 +61,7 @@ export const senderAdjectives = [
   'unsatisfied'
 ]
 
-export const recipientAdjectives = [
+export const recipientAdjectives: Array<string> = [
   'lovely',
   'charming',
   'little',
@@ -75,7 +75,7 @@ export const recipientAdjectives = [
   'fond'
 ]
 
-export const senderNouns = [
+export const senderNouns: Array<string> = [
   'eagerness',
   'longing',
   'devotion',
@@ -89,7 +89,7 @@ export const senderNouns = [
 
 ]
 
-export const recipientNouns = [
+export const recipientNouns: Array<string> = [
   'tenderness',
   'beauty',
   'kindness',
@@ -104,7 +104,7 @@ export const recipientNouns = [
   'ardour'
 ]
 
-export const bodyParts = [
+export const bodyParts: Array<string> = [
   'eyes',
   'nose',
   'mouth',
@@ -121,12 +121,12 @@ export const bodyParts = [
   'smile',
 ]
 
-export const bodyPartsFemale = [
+export const bodyPartsFemale: Array<string> = [
   ...bodyParts,
   'bosom',
 ]
 
-export const bodyPartsMale = [
+export const bodyPartsMale: Array<string> = [
   ...bodyParts,
   'chest',
 ]
