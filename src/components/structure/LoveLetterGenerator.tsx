@@ -145,6 +145,7 @@ const LoveLetterGenerator: React.FC = () => {
       <Grid item xs={12} className={classes.inputSection}>
         <Typography variant="subtitle1" component="div">* Recipient and sender names are optional</Typography>
         <TextField
+          id="recipient"
           label="Who is this for?"
           variant="outlined"
           onChange={(e) => {
@@ -153,7 +154,7 @@ const LoveLetterGenerator: React.FC = () => {
           }}
         />
         <TextField
-          id="letter-anchor"
+          id="sender"
           label="Who is this from?"
           variant="outlined"
           onChange={(e) => {
@@ -161,6 +162,7 @@ const LoveLetterGenerator: React.FC = () => {
             e.persist();
           }}
         />
+        <span id="letter-anchor" />
         <Link smooth to="#letter-anchor">
           <Button
             variant="contained"
