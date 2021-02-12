@@ -9,7 +9,7 @@ const AppTheme: React.FC = () => {
 
   const common: ThemeOptions = {
     typography: {
-      fontFamily: "'Avenir', sans-serif !important",
+      fontFamily: "'Raleway', sans-serif !important",
     }
   };
 

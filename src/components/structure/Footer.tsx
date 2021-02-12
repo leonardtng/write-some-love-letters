@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
     <Grid container spacing={0} className={classes.footer}>
       <Grid item xs={12}>
         <Typography variant="body1" component="p">
-          This project is inspired by Professor <Link href="https://www.yale-nus.edu.sg/about/faculty/olivier-danvy/" target="_blank" rel="noreferrer">Olivier Danvy's</Link> YSC1212 Introduction to Computer Science module and <Link href="http://www.alpha60.de/art/love_letters/" target="_blank" rel="noreferrer">Starchy's Love Letter Generator</Link>
+          This project is inspired by Professor <Link href="https://www.yale-nus.edu.sg/about/faculty/olivier-danvy/" target="_blank" rel="noreferrer">Olivier Danvy's</Link> YSC1212 Introduction to Computer Science module and <Link href="http://www.alpha60.de/art/love_letters/" target="_blank" rel="noreferrer">Strachey's generator of love letters</Link>
         </Typography>
         <Typography variant="h6" component="h3">
           <Link href="https://github.com/leonardtng/write-some-love-letters" color="textPrimary" target='_blank' rel="noopener" className={classes.github}>

@@ -1,46 +1,23 @@
-# Getting Started with Create React App
+<div align="center">
+  <img alt="Logo" src="https://love-letter-generator-assets.s3-ap-southeast-1.amazonaws.com/card.png" width="150" />
+</div>
+<h1 align="center">
+  Love Letter Generator | Compose Romantic Letters!
+</h1>
+<p align="center">
+  Love is in the air! Compose an immensely romantic (and cringe-worthy) love letter for your special someone with just a click of a button!
+</p>
+<p align="center">
+  Visit the website at <a href="https://www.lovelettergenerator.com/" target="_blank">lovelettergenerator.com!</a>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![demo](src/assets/images/card.png)
 
-## Available Scripts
+## ❗  Disclaimer
+Just a random project that was created in the spirit of Valentine's Day. Inspired by Professor [Olivier Danvy's](https://www.yale-nus.edu.sg/about/faculty/olivier-danvy/) YSC1212 Introduction to Computer Science module and [Strachey's generator of love letters](http://www.alpha60.de/art/love_letters/).
 
-In the project directory, you can run:
+## ⭐  About this Website
+This website was built using React, Material-UI and TypeScript.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 😊  Contact Me
+If you liked the site or just want to get in touch, email me at <a href="mailto:theleonardtng@gmail.com">theleonardtng@gmail.com</a>. Cheers.
