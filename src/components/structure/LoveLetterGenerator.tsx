@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Button, Grid, Hidden, IconButton, Paper, TextField, Tooltip, Typography } from '@material-ui/core';
-import { ArrowForward, FileCopy, Refresh } from '@material-ui/icons';
+import { ArrowForward, FileCopy, GetApp, Refresh } from '@material-ui/icons';
 import { HashLink as Link } from 'react-router-hash-link';
 import Female from '../../assets/female.svg';
 import Male from '../../assets/male.svg';
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'center',
   },
   toggleBody: {
-    width: 656, // 700 - 44 width - icon width
+    width: 612, // 700 - 44 * 2 width - icon width
     textAlign: 'justify',
     marginBottom: 20,
   },
@@ -91,7 +91,13 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const LoveLetterGenerator: React.FC = () => {
+interface LoveLetterGeneratorProps {
+  supportsPWA: boolean;
+  promptToInstall: () => void;
+}
+
+
+const LoveLetterGenerator: React.FC<LoveLetterGeneratorProps> = ({ supportsPWA, promptToInstall }) => {
   const classes = useStyles();
 
   const [recipient, setRecipient] = useState<string>('');
@@ -216,7 +222,30 @@ const LoveLetterGenerator: React.FC = () => {
               </Tooltip>
             </ToggleButton>
           </ToggleButtonGroup>
-          <IconButton onClick={handleCopyLetter} className={classes.copyButton} disabled={!letter.generated}>
+          {/* Tooltip nested outside to show even when button is disabled */}
+          <Tooltip
+            title={supportsPWA ?
+              'Install Love Letter Generator as an app to improve your experience!' :
+              'Installation not supported in current browser. Either you already have installed Love Letter Generator, or please try again with another browser.'}
+            placement="top"
+          >
+            <span>
+              <IconButton
+                className={classes.copyButton}
+                color="secondary"
+                onClick={() => promptToInstall()}
+                disabled={!supportsPWA}
+              >
+
+                <GetApp />
+              </IconButton>
+            </span>
+          </Tooltip>
+          <IconButton
+            onClick={handleCopyLetter}
+            className={classes.copyButton}
+            disabled={!letter.generated}
+          >
             <Tooltip title="Copy to Clipboard" placement="top">
               <FileCopy />
             </Tooltip>
