@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Button, Grid, Hidden, Paper, TextField, Tooltip, Typography } from '@material-ui/core';
-import { ArrowForward, Refresh } from '@material-ui/icons';
+import { Button, Grid, Hidden, IconButton, Paper, TextField, Tooltip, Typography } from '@material-ui/core';
+import { ArrowForward, FileCopy, Refresh } from '@material-ui/icons';
 import { HashLink as Link } from 'react-router-hash-link';
 import Female from '../../assets/female.svg';
 import Male from '../../assets/male.svg';
@@ -9,6 +9,7 @@ import { generateLetter } from '../../@utils/generateLetter';
 import { LoveLetter } from '../../@types';
 import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
 import LetterBodyFiller from '../fillers/LetterBodyFiller';
+import ResponseSnackbar from '../ulilities/ResponseSnackbar';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -35,14 +36,18 @@ const useStyles = makeStyles((theme: Theme) => ({
       textDecoration: 'none',
     },
   },
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
   toggleBody: {
-    width: 700,
+    width: 656, // 700 - 44 width - icon width
     textAlign: 'justify',
     marginBottom: 20,
   },
-  letterContainer: {
-    display: 'flex',
-    justifyContent: 'center',
+  copyButton: {
+    height: 44,
+    width: 44
   },
   letterBody: {
     minHeight: 300,
@@ -120,7 +125,20 @@ const LoveLetterGenerator: React.FC = () => {
       setLetter(generateLetter(recipient, sender, recipientGender));
       setIsLoading(false);
     }, 500);
-  }
+  };
+
+  const [message, setMessage] = useState<string>('');
+
+  const handleCopyLetter = (): void => {
+    var letterBody: HTMLTextAreaElement = document.createElement('textarea');
+    letterBody.value = `${letter.salutation}\n\n${letter.body}\n\n${letter.signOff}\n${letter.sender}`;
+    document.body.appendChild(letterBody);
+    letterBody.select();
+    letterBody.setSelectionRange(0, 99999); /* For mobile devices */
+    document.execCommand('copy');
+    letterBody.remove();
+    setMessage('Letter successfully copied!')
+  };
 
   return (
     <Grid container spacing={4} className={classes.root}>
@@ -176,24 +194,31 @@ const LoveLetterGenerator: React.FC = () => {
         </Link>
       </Grid>
       <Grid item xs={12}>
-        <ToggleButtonGroup
-          className={classes.toggleBody}
-          value={recipientGender}
-          exclusive
-          onChange={handleRecipientGender}
-        >
-          <ToggleButton value="female">
-            <Tooltip title="For Her" placement="top">
-              <img src={Female} alt="Female" height="20" />
-            </Tooltip>
-          </ToggleButton>
-          <ToggleButton value="male">
-            <Tooltip title="For Him" placement="top">
-              <img src={Male} alt="Male" height="20" />
-            </Tooltip>
-          </ToggleButton>
-        </ToggleButtonGroup>
-        <div className={classes.letterContainer}>
+        <div className={classes.container}>
+          <ToggleButtonGroup
+            className={classes.toggleBody}
+            value={recipientGender}
+            exclusive
+            onChange={handleRecipientGender}
+          >
+            <ToggleButton value="female">
+              <Tooltip title="For Her" placement="top">
+                <img src={Female} alt="Female" height="20" />
+              </Tooltip>
+            </ToggleButton>
+            <ToggleButton value="male">
+              <Tooltip title="For Him" placement="top">
+                <img src={Male} alt="Male" height="20" />
+              </Tooltip>
+            </ToggleButton>
+          </ToggleButtonGroup>
+          <Tooltip title="Copy to Clipboard">
+            <IconButton onClick={handleCopyLetter} className={classes.copyButton} disabled={!letter.generated}>
+              <FileCopy />
+            </IconButton>
+          </Tooltip>
+        </div>
+        <div className={classes.container}>
           <Paper className={classes.letterBody}>
             {letter.generated && !isLoading ? (
               <Fragment>
@@ -216,6 +241,7 @@ const LoveLetterGenerator: React.FC = () => {
           </Paper>
         </div>
       </Grid>
+      <ResponseSnackbar message={message} setMessage={setMessage} severity='success' />
     </Grid>
   );
 }
