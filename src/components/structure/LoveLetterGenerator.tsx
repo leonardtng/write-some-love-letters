@@ -217,9 +217,11 @@ const LoveLetterGenerator: React.FC = () => {
             </ToggleButton>
           </ToggleButtonGroup>
           <Tooltip title="Copy to Clipboard">
-            <IconButton onClick={handleCopyLetter} className={classes.copyButton} disabled={!letter.generated}>
-              <FileCopy />
-            </IconButton>
+            <span>
+              <IconButton onClick={handleCopyLetter} className={classes.copyButton} disabled={!letter.generated}>
+                <FileCopy />
+              </IconButton>
+            </span>
           </Tooltip>
         </div>
         <div className={classes.container}>

@@ -5,6 +5,8 @@ export const altSalutationsFemale: Array<string> = [
   'darling',
   'angel',
   'moppet',
+  'missy',
+  'lass',
   'baby'
 ]
 
@@ -14,6 +16,9 @@ export const altSalutationsMale: Array<string> = [
   'darling',
   'swain',
   'suitor',
+  'sire',
+  'gentleman',
+  'monsieur',
   'baby'
 ]
 
@@ -28,7 +33,9 @@ export const verbs: Array<string> = [
   'lusts',
   'cares',
   'adores',
-  'pines'
+  'pines',
+  'thirsts',
+  'longs'
 ]
 
 export const adverbs: Array<string> = [
@@ -40,7 +47,10 @@ export const adverbs: Array<string> = [
   'earnestly',
   'dearly',
   'eagerly',
-  'fiercely'
+  'fiercely',
+  'lovingly',
+  'amorously',
+  'tenderly'
 ]
 
 export const senderAdjectives: Array<string> = [
@@ -72,7 +82,8 @@ export const recipientAdjectives: Array<string> = [
   'seductive',
   'lovable',
   'dearest',
-  'fond'
+  'fond',
+  'tender'
 ]
 
 export const senderNouns: Array<string> = [
@@ -86,7 +97,7 @@ export const senderNouns: Array<string> = [
   'ambition',
   'desire',
   'passion',
-
+  'obsession'
 ]
 
 export const recipientNouns: Array<string> = [

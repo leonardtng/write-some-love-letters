@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography, Link } from '@material-ui/core';
-import { GitHub } from '@material-ui/icons';
+import { Grid, Typography, Link, Divider, Tooltip } from '@material-ui/core';
+import { GitHub, Language } from '@material-ui/icons';
 
 const useStyles = makeStyles<Theme>((theme: Theme) => ({
   footer: {
@@ -14,7 +14,15 @@ const useStyles = makeStyles<Theme>((theme: Theme) => ({
       color: theme.palette.secondary.main
     },
   },
-  github: {
+  iconBar: {
+    display: 'flex',
+    justifyContent: 'center',
+    '& .MuiDivider-root': {
+      height: 32,
+      margin: '20px 15px 0 15px',
+    },
+  },
+  contactLabel: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -34,11 +42,23 @@ const Footer: React.FC = () => {
         <Typography variant="body1" component="p">
           This project is inspired by Professor <Link href="https://www.yale-nus.edu.sg/about/faculty/olivier-danvy/" target="_blank" rel="noreferrer">Olivier Danvy's</Link> YSC1212 Introduction to Computer Science module and <Link href="http://www.alpha60.de/art/love_letters/" target="_blank" rel="noreferrer">Strachey's generator of love letters</Link>
         </Typography>
-        <Typography variant="h6" component="h3">
-          <Link href="https://github.com/leonardtng/write-some-love-letters" color="textPrimary" target='_blank' rel="noopener" className={classes.github}>
-            <GitHub />GitHub
-          </Link>
-        </Typography>
+        <div className={classes.iconBar}>
+          <Typography variant="h6" component="h3">
+            <Tooltip title="View project on GitHub">
+              <Link href="https://github.com/leonardtng/write-some-love-letters" color="textPrimary" target='_blank' rel="noopener" className={classes.contactLabel}>
+                <GitHub />GitHub
+              </Link>
+            </Tooltip>
+          </Typography>
+          <Divider orientation="vertical" flexItem />
+          <Typography variant="h6" component="h3">
+            <Tooltip title="Visit my personal website!">
+              <Link href="https://leonardtng.com" color="textPrimary" target='_blank' rel="noopener" className={classes.contactLabel}>
+                <Language />My Website
+              </Link>
+            </Tooltip>
+          </Typography>
+        </div>
       </Grid>
     </Grid>
   )
