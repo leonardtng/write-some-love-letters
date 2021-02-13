@@ -13,11 +13,11 @@
 
 ![demo](https://love-letter-generator-assets.s3-ap-southeast-1.amazonaws.com/card.png)
 
-## ❗  Disclaimer
+## 💜  About
 Just a random project that was created in the spirit of Valentine's Day. Inspired by Professor [Olivier Danvy's](https://www.yale-nus.edu.sg/about/faculty/olivier-danvy/) YSC1212 Introduction to Computer Science module and [Strachey's generator of love letters](http://www.alpha60.de/art/love_letters/).
 
-## ⭐  About this Website
-This website was built using React, Material-UI and TypeScript.
+## ⭐  About this Project
+This project was built using React, Material-UI and TypeScript.
 
 ## 😊  Contact Me
-If you liked the site or just want to get in touch, email me at <a href="mailto:theleonardtng@gmail.com">theleonardtng@gmail.com</a>. Cheers.
+If you liked the site or just want to get in touch, visit my website at <a href="https://www.leonardtng.com/">leoanrdtng.com</a> or email me at <a href="mailto:theleonardtng@gmail.com">theleonardtng@gmail.com</a>. Cheers.
