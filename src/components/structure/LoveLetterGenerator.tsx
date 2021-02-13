@@ -130,14 +130,18 @@ const LoveLetterGenerator: React.FC = () => {
   const [message, setMessage] = useState<string>('');
 
   const handleCopyLetter = (): void => {
-    var letterBody: HTMLTextAreaElement = document.createElement('textarea');
-    letterBody.value = `${letter.salutation}\n\n${letter.body}\n\n${letter.signOff}\n${letter.sender}`;
-    document.body.appendChild(letterBody);
-    letterBody.select();
-    letterBody.setSelectionRange(0, 99999); /* For mobile devices */
-    document.execCommand('copy');
-    letterBody.remove();
-    setMessage('Letter successfully copied!')
+    try {
+      var letterBody: HTMLTextAreaElement = document.createElement('textarea');
+      letterBody.value = `${letter.salutation}\n\n${letter.body}\n\n${letter.signOff}\n${letter.sender}`;
+      document.body.appendChild(letterBody);
+      letterBody.select();
+      letterBody.setSelectionRange(0, 99999); /* For mobile devices */
+      document.execCommand('copy');
+      letterBody.remove();
+      setMessage('Letter successfully copied!');
+    } catch (error) {
+      setMessage((error as Error).message);
+    }
   };
 
   return (
