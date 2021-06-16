@@ -115,7 +115,10 @@ const LoveLetterGenerator: React.FC<LoveLetterGeneratorProps> = ({ supportsPWA, 
   });
 
   const handleRecipientGender = (event: React.MouseEvent<HTMLElement>, newRecipientGender: string | null): void => {
-    setRecipientGender(newRecipientGender);
+    if (newRecipientGender !== null) {
+      setRecipientGender(newRecipientGender);
+    };
+    
     if (letter.generated) {
       setIsLoading(true);
       setTimeout(() => {
