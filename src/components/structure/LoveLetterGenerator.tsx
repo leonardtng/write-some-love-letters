@@ -5,6 +5,7 @@ import { ArrowForward, FileCopy, GetApp, Refresh } from '@material-ui/icons';
 import { HashLink as Link } from 'react-router-hash-link';
 import Female from '../../assets/female.svg';
 import Male from '../../assets/male.svg';
+import NonBinary from '../../assets/nonbinary.svg';
 import { generateLetter } from '../../@utils/generateLetter';
 import { LoveLetter } from '../../@types';
 import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
@@ -222,6 +223,11 @@ const LoveLetterGenerator: React.FC<LoveLetterGeneratorProps> = ({ supportsPWA, 
             <ToggleButton value="male">
               <Tooltip title="For Him" placement="top">
                 <img src={Male} alt="Male" height="20" />
+              </Tooltip>
+            </ToggleButton>
+            <ToggleButton value="nonbinary">
+              <Tooltip title="For Them" placement="top">
+                <img src={NonBinary} alt="Non Binary" height="20" />
               </Tooltip>
             </ToggleButton>
           </ToggleButtonGroup>

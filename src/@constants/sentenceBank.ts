@@ -5,7 +5,6 @@ export const defaultSentencesSet1: Array<string> = [
   'I want to take you far far away. ',
   'You are my favorite distraction. ',
   'Your love makes my world go round. ',
-
 ]
 
 export const defaultSentencesSet2: Array<string> = [
@@ -31,4 +30,11 @@ export const forHimSentences: Array<string> = [
   'You should teach other men how to love their partners and make them feel special because you have it down to an art. ',
   'You are my prince charming. ',
   'You are the man of my dreams. '
+]
+
+export const genderNeutralSentences: Array<string> = [
+  'The way you look at me makes me feel strong and confident. ',
+  'Every time I see you I fall in love all over again. ',
+  'You bring more to me than I ever wanted. ',
+  'When I am in your arms, I feel safe, I feel loved and I feel like I am going to be protected from all the stones life can throw. ',
 ]
