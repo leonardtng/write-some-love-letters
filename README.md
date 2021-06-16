@@ -20,4 +20,4 @@ Just a random project that was created in the spirit of Valentine's Day. Inspire
 This project was built using React, Material-UI and TypeScript.
 
 ## 😊  Contact Me
-If you liked the site or just want to get in touch, visit my website at <a href="https://www.leonardtng.com/">leoanrdtng.com</a> or email me at <a href="mailto:theleonardtng@gmail.com">theleonardtng@gmail.com</a>. Cheers.
+If you liked the site or just want to get in touch, visit my website at <a href="https://www.leonardtng.com/">leonardtng.com</a> or email me at <a href="mailto:theleonardtng@gmail.com">theleonardtng@gmail.com</a>. Cheers.
